@@ -56,7 +56,7 @@ class Downloader
     version = File.read(plupload).match(/\*\s+(v|ver|version)([\d.]+)/i)
     if version.length == 3
       content = File.read(file).sub(/VERSION\s*=\s*('|")[\d.]+\1/, "VERSION = \"#{version[2]}\"")
-      byebug
+
       File.open(file, 'w') { |f| f.write content }
     else
     end
