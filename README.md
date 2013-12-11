@@ -10,7 +10,6 @@ Install
 
 Just add it got your Gemfile:
 
-
     gem 'plupload-rails'
 
 
@@ -19,24 +18,19 @@ Quick Start
 
 Add to your application.js:
 
+    //= require moxie
     //= require plupload
-    
+
+    // or you can just require plupload.full.min
+
     // optional, only needed if you'd like to use plupload localized
-    //= require plupload/i18n/de
+    //= require plupload/i18n/en
 
     // optional, but recommended. it sets generic settings like flash url, etc.
-    //= require plupload.settings     
+    //= require plupload.settings
 
     // optional, only if you want to use the jquery integration
-    //= require jquery.plupload.queue 
-    
-    // optional, choose the ones you'd like to use
-    //= require plupload.flash        
-    //= require plupload.silverlight  
-    //= require plupload.html4        
-    //= require plupload.html5        
-    //= require plupload.gears        
-    //= require plupload.browserplus
+    //= require jquery.plupload.queue
 
 
 Add to your application.scss:
@@ -50,7 +44,7 @@ Simple example haml for your views:
     :javascript
       $(function(){
         $("#uploader").pluploadQueue({
-          runtimes: 'gears,flash,silverlight,browserplus,html5',
+          runtimes: 'html5,flash,silverlight',
           url: '#{images_path}',
           multipart_params: {
             '#{request_forgery_protection_token}': '#{form_authenticity_token}',
