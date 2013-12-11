@@ -13,6 +13,16 @@ class Downloader
           save_file("#{js_path}/#{File.basename(name)}", content)
         end
       end
+
+
+      @logger.title "Generate plupload.full.js for easy to use"
+
+      moxie_file = "#{js_path}/moxie.js"
+      plupload_file = "#{js_path}/plupload.dev.js"
+
+      moxie_content = File.read(moxie_file)
+      plupload_content = File.read(plupload_file)
+      save_file("#{js_path}/plupload.full.js", "#{moxie_content}\n\n#{plupload_content}")
     end
   end
 end
