@@ -1,10 +1,11 @@
 // Assigns default Plupload settings that work with the asset pipeline.
 (function () {
   plupload.RailsUploader = function (settings) {
+    host = window.location.protocol + '//' + window.location.host
     settings = $.extend({}, settings, {
       multipart: true,
-      flash_swf_url: '<%=asset_path("Moxie.swf")%>',
-      silverlight_xap_url: '<%=asset_path("Moxie.xap")%>'
+      flash_swf_url: host + '<%=asset_path("Moxie.swf")%>',
+      silverlight_xap_url: host + '<%=asset_path("Moxie.xap")%>'
     });
 
     return new plupload.Uploader(settings);
