@@ -4,8 +4,8 @@
     host = window.location.protocol + '//' + window.location.host
     settings = $.extend({}, settings, {
       multipart: true,
-      flash_swf_url: host + '<%=asset_path("Moxie.swf")%>',
-      silverlight_xap_url: host + '<%=asset_path("Moxie.xap")%>'
+      flash_swf_url: host + '/assets/Moxie.swf',
+      silverlight_xap_url: host + '/assets/Moxie.xap'
     });
 
     return new plupload.Uploader(settings);
